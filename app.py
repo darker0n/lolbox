@@ -1,3 +1,5 @@
+import os
+
 from flask import *
 from flask.ext.bootstrap import Bootstrap
 
@@ -12,11 +14,12 @@ def page_not_found(e):
 
 @app.errorhandler(500)
 def internal_server_error(e):
-            return render_template('500.html'), 500
+        return render_template('500.html'), 500
 
 @app.route('/')
 def homepage():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run()
+        port = int(os.envirion.get('PORT', 5000))
+        app.run(host='0.0.0.0', port=port)
