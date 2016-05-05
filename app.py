@@ -7,7 +7,7 @@ import collections
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 
-MONGO_URL = os.environ.get("MONGODB_URL")
+MONGODB_URL = os.environ.get("MONGODB_URI")
 client = pymongo.MongoClient(MONGODB_URL)
 
 db = client.get_default_database()
