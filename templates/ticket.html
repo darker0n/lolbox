@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Pikasuuu - Билет№{{ ticket.number }}{% endblock %}
+
+{% block page_content %}
+<ul class="list-group">
+{% for question in ticket.questions %}
+  <li class="list-group-item">{{ question }}</li>
+{% endfor %}
+</ul>
+{% endblock %}
+

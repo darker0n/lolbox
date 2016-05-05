@@ -8,4 +8,12 @@
   <script src="http://megatimer.ru/s/1de7792a57dd70fddbdb35b7a7069d68.js"></script>
   <h4>жесть. и мне лень все это учить :) поэтому я решил написать "Pikasuuu". Тут будут все билеты, задачи, определения и прочая хрень, котурую нам нужно учить..</h4>
 </div>
+<div class="panel panel-default">
+  <div class="panel-heading">Список билетов по физике</div>
+  <div class="panel-body">
+{% for ticket in tickets%}
+    <a href="/ticket/{{ticket.number}}" class="btn btn-info" role="button">Билет №{{ticket.number}}</a>
+{% endfor %}
+  </div>
+</div>
 {% endblock %}
