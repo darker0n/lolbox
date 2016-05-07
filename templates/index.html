@@ -1,19 +1,22 @@
-{% extends "base.html" %}
+{% extends "layout.html" %}
 
-{% block title %}Pikasuuu{% endblock %}
+{% block title %}lolbox - fuck all rules{% endblock %}
 
 {% block page_content %}
-<div class="jumbotron">
-  <h4>ээээ, здарова, народ. мне сегодня было скучно (совсем скучно, как вы поймете дальше), а тут еще и эти экзамены по физике. до которых осталось:</h4>
-  <script src="http://megatimer.ru/s/1de7792a57dd70fddbdb35b7a7069d68.js"></script>
-  <h4>жесть. и мне лень все это учить :) поэтому я решил создать "Pikasuuu". Тут будут все билеты, задачи, определения и прочая хрень, которую нам нужно учить..</h4>
+<font face="monster"><h1>lolbox</h1></font>
+<div class="panel panel-default">
+    <div class="panel-heading"> <span class="glyphicon glyphicon-retweet" aria-hidden="true"></span> Random meme</div>
+    <div class="panel-body">
+      <img src="{{ url_for('static', filename='meme.png') }}">
+    </div>
 </div>
 <div class="panel panel-default">
-  <div class="panel-heading">Список билетов по физике</div>
-  <div class="panel-body">
-{% for ticket in tickets%}
-    <a href="/ticket/{{ticket.number}}" class="btn btn-info" role="button">Билет №{{ticket.number}} <span class="badge">{{ ticket.answers|length }}</span></a>
-{% endfor %}
-  </div>
+    <div class="panel-heading">
+        <span class="glyphicon glyphicon-fire" aria-hidden="true"></span> Популярные темы</div>
+    <div class="panel-body">
+        {% for topic in topics%}
+        <a href="/topic/{{topic.number}}" class="btn btn-info" role="button">{{topic.name}} <span class="badge">{{ topic.comments|length }}</span></a>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}lolbox - {{ topic.name }}{% endblock %}
+
+{% block page_content %}
+<h2> {{ topic.name }} </h2>
+
+<form role="form" data-toggle ="validator" name="postbox" method="post">
+    <textarea name="text" maxlength="100"></textarea>
+    <div class="help-block">Maximum of 100 characters</div>
+<input type="submit" name="submit" value="отправить.">
+</form>
+
+{% for comment in topic.comments|reverse %}
+<div class="panel panel-default">
+<div class="panel-body">
+   {{ comment|urlize(40) }}
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}
+
