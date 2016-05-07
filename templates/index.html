@@ -12,7 +12,7 @@
   <div class="panel-heading">Список билетов по физике</div>
   <div class="panel-body">
 {% for ticket in tickets%}
-    <a href="/ticket/{{ticket.number}}" class="btn btn-info" role="button">Билет №{{ticket.number}}</a>
+    <a href="/ticket/{{ticket.number}}" class="btn btn-info" role="button">Билет №{{ticket.number}} <span class="badge">{{ ticket.answers|length }}</span></a>
 {% endfor %}
   </div>
 </div>
