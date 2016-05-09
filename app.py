@@ -15,7 +15,7 @@ import boto
 app = Flask(__name__)
 app.config.from_object('config')
 
-MONGODB_URL = os.environ.get("MONGODB_URI")
+MONGODB_URL = app.config["MONGODB_URI"]
 client = pymongo.MongoClient(MONGODB_URL)
 db = client.get_default_database()
 
@@ -66,4 +66,4 @@ def new_topic():
 
 if __name__ == '__main__':
         port = int(os.environ.get('PORT', 5000))
-        app.run()
+        app.run(port=port)
