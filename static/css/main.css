@@ -1,0 +1,9 @@
+ .resize {
+     width: 200px;
+     height: auto;
+ }
+
+ @font-face {
+     font-family: monster;
+     src: url(/static/Creepster-Regular.ttf);
+ }

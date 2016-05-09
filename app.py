@@ -66,7 +66,16 @@ def ticket(number):
 
 @app.route('/')
 def homepage():
-        return render_template('index.html', topics=[x for x in get_coll('topics').find()])
+        return render_template('index.html', topics=[x for x in get_coll("topics").find()])
+
+@app.route('/', methods=['POST'])
+def new_topic():
+        coll = get_coll("topics")
+        name = request.form["text"]
+        coll.insert({"number": coll.count() + 1,
+                     "name": name,
+                     "posts": []})
+        return redirect(request.path)
 
 if __name__ == '__main__':
         port = int(os.environ.get('PORT', 5000))

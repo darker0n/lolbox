@@ -1,18 +1,28 @@
 {% extends "layout.html" %}
 
-{% block title %}lolbox - fuck all rules{% endblock %}
-
 {% block page_content %}
+<title>lolbox - fuck all rules</title>
+
 <font face="monster"><h1>lolbox</h1></font>
 <div class="panel panel-default">
-    <div class="panel-heading"> <span class="glyphicon glyphicon-retweet" aria-hidden="true"></span> Random meme</div>
+    <div class="panel-heading">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Создать новый топик.</div>
     <div class="panel-body">
-        <img src="{{ url_for('static', filename='meme.jpg') }}">
+<form name="newtopic" method="post">
+    <input required type="text" name="text" placeholder="Название темы." maxlength="100">
+    <button type="submit" class="btn btn-primary" name="submit">начать гребаный треш.</button>
+</form>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"> <span class="glyphicon glyphicon-retweet" aria-hidden="true"></span> Рандомный мемас.</div>
+    <div class="panel-body">
+        <a href="{{ url_for('static', filename='meme.jpg') }}" target="_blank"><img class="resize" src="{{ url_for('static', filename='meme.jpg') }}"></a>
     </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <span class="glyphicon glyphicon-fire" aria-hidden="true"></span> Популярные темы</div>
+        <span class="glyphicon glyphicon-fire" aria-hidden="true"></span> Самые горячие топики.</div>
     <div class="panel-body">
         {% for topic in topics%}
         <a href="/topic/{{topic.number}}" class="btn btn-info" role="button">{{topic.name}} <span class="badge">{{ topic.posts|length }}</span></a>

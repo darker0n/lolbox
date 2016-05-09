@@ -1,33 +1,31 @@
 {% extends "layout.html" %}
 
-{% block title %}lolbox - {{ topic.name }}{% endblock %}
-
 {% block page_content %}
-<h2> {{ topic.name }} </h2> <p> Постов в теме-> {{ topic.posts|length }} </p>
+<title>lolbox - {{ topic.name }} ({{ topic.posts|length }})</title>
+
+<h2> {{ topic.name }} 
+    <span class="label label-default">Постов в теме -> {{ topic.posts|length }}</span>
+</h2>
 
 <div class="panel panel-default">
     <div class="panel-heading">Добавить новый пост.</div>
     <div class="panel-body">
         <form role="form" data-toggle ="validator" name="postbox" method="post" enctype=multipart/form-data>
             <textarea required name="text" placeholder="Ваш пост." maxlength="300"></textarea>
-            <div class="help-block">Maximum of 300 characters</div>
-            <p>Upload a file</p>
+            <div class="help-block">Не более 300 символов.</div>
+            <div class="well"><p>Залить файл.</p>
             <input required type=file name=file>
-            <input type="submit" name="submit" value="запостить.">
+            </div>
+            <button type="submit" class="btn btn-success btn-sm" name="submit">запостить.</button>
         </form>
     </div>
 </div>
-
-<style>
- img {max-height:200px;
-     max-width:200px}
-</style>
 
 {% for post in topic.posts|reverse %}
 <div class="panel panel-default">
     <div class="panel-body">
         {% if post.file_name %}
-        <img src="{{ url_for('uploaded_file', file_id=post.file_id) }}">
+        <a href="{{ url_for('uploaded_file', file_id=post.file_id) }}" target="_blank"><img class="resize" src="{{ url_for('uploaded_file', file_id=post.file_id) }}"></a>
         <p> {{ post.file_name }} </p>
         {% endif %}
         {{ post.text|urlize(40) }} <span class="label label-primary"> {{ post.time }}</span>
