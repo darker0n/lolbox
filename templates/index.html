@@ -7,7 +7,7 @@
 <div class="panel panel-default">
     <div class="panel-heading"> <span class="glyphicon glyphicon-retweet" aria-hidden="true"></span> Random meme</div>
     <div class="panel-body">
-      <img src="{{ url_for('static', filename='meme.png') }}">
+        <img src="{{ url_for('static', filename='meme.jpg') }}">
     </div>
 </div>
 <div class="panel panel-default">
@@ -15,7 +15,7 @@
         <span class="glyphicon glyphicon-fire" aria-hidden="true"></span> Популярные темы</div>
     <div class="panel-body">
         {% for topic in topics%}
-        <a href="/topic/{{topic.number}}" class="btn btn-info" role="button">{{topic.name}} <span class="badge">{{ topic.comments|length }}</span></a>
+        <a href="/topic/{{topic.number}}" class="btn btn-info" role="button">{{topic.name}} <span class="badge">{{ topic.posts|length }}</span></a>
         {% endfor %}
     </div>
 </div>
