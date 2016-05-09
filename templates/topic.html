@@ -14,7 +14,8 @@
             <textarea required name="text" placeholder="Ваш пост." maxlength="300"></textarea>
             <div class="help-block">Не более 300 символов.</div>
             <div class="well"><p>Залить файл.</p>
-            <input required type=file name=file>
+                {{ form.csrf_token }}
+                {{ form.file }}
             </div>
             <button type="submit" class="btn btn-success btn-sm" name="submit">запостить.</button>
         </form>
@@ -25,7 +26,7 @@
 <div class="panel panel-default">
     <div class="panel-body">
         {% if post.file_name %}
-        <a href="{{ url_for('uploaded_file', file_id=post.file_id) }}" target="_blank"><img class="resize" src="{{ url_for('uploaded_file', file_id=post.file_id) }}"></a>
+        <a href="https://s3.amazonaws.com/lolbox/uploads/{{ post.file_id }}" target="_blank"><img class="resize" src="https://s3.amazonaws.com/lolbox/uploads/{{ post.file_id }}"></a>
         <p> {{ post.file_name }} </p>
         {% endif %}
         {{ post.text|urlize(40) }} <span class="label label-primary"> {{ post.time }}</span>
