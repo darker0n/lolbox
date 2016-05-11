@@ -64,6 +64,10 @@ def new_topic():
                      "posts": []})
         return redirect(request.path)
 
+@app.route('/rules')
+def rules():
+        return render_template('rules.html')
+
 if __name__ == '__main__':
         port = int(os.environ.get('PORT', 5000))
         app.run(host='0.0.0.0', port=port, debug=False)
