@@ -4,3 +4,4 @@ python:
 install:
   - pip install -r requirements.txt
   - npm install
+script: python tests.py
