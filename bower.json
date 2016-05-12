@@ -1,0 +1,22 @@
+{
+    "name": "lolbox",
+    "homepage": "https://github.com/darker0n/lolbox",
+    "authors": [
+        "darker0n <dark.crak@ya.ru>"
+    ],
+    "description": "",
+    "main": "",
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "./lolbox/static/bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "bootstrap": "^3.3.6",
+        "jquery": "^2.2.3"
+    }
+}

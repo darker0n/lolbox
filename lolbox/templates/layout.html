@@ -2,12 +2,12 @@
 
 <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
 <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
-<script src="/static/js/jquery-1.12.3.min.js"></script>
+<script src="{{ url_for('static', filename='bower_components/jquery/dist/jquery.min.js') }}"></script>
 <!-- Latest compiled and minified CSS -->
-<link href="/static/css/bootstrap.min.css" rel="stylesheet">
-<link href="/static/css/main.css" rel="stylesheet">
+<link href="{{ url_for('static', filename='bower_components/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/main.css') }}"" rel="stylesheet">
 <!-- Latest compiled and minified JavaScript -->
-<script src="/static/js/bootstrap.min.js"></script>
+<script src="{{ url_for('static', filename='bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 
 {% endblock %}
 
