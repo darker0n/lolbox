@@ -4,3 +4,4 @@ build
 *.pyc
 node_modules/
 lolbox/static/bower_components/
+.env
