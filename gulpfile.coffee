@@ -19,7 +19,7 @@ gulp.task 'bower', ->
   gutil.log 'Installing bower packages...'
   bower
 
-gulp.task 'prod', ->
+gulp.task 'production', ->
   gulp.start 'bower'
 
 gulp.task 'dev', ->
