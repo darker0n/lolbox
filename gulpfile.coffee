@@ -16,8 +16,7 @@ gulp.task 'clean', ->
 #  .pipe gulp.dest './public/'
 
 gulp.task 'bower', ->
-  gutil.log 'Installing bower packages...'
-  bower
+  bower './lolbox/static/bower_components'
 
 gulp.task 'production', ->
   gulp.start 'bower'
