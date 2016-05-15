@@ -9,7 +9,6 @@ from flask_wtf.file import FileField
 
 posts = Blueprint('posts', __name__)
 
-
 class UploadForm(Form):
         file = FileField('File')
 
