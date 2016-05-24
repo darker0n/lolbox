@@ -1,9 +1,11 @@
 {% extends "layout.html" %}
 
 {% block page_content %}
+<script src="{{ url_for('static', filename='bower_components/react/react.js') }}"></script>
+<script src="{{ url_for('static', filename='bower_components/react/react-dom.js') }}"></script>
+<script src="{{ url_for('static', filename='bower_components/jquery/dist/jquery.min.js') }}"></script>
 <title>lolbox - fuck all rules</title>
-
-<font face="monster"><h1 id="center">lolbox</h1></font>
+<div id="main"></div>
 <div class="panel panel-default">
     <div class="panel-heading">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Создать новый топик.</div>
@@ -15,12 +17,6 @@
     </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"> <span class="glyphicon glyphicon-retweet" aria-hidden="true"></span> Рандомный мемас.</div>
-    <div class="panel-body">
-        <a href="{{ url_for('static', filename='meme.jpg') }}" target="_blank"><img class="resize" src="{{ url_for('static', filename='meme.jpg') }}"></a>
-    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading">
         <span class="glyphicon glyphicon-fire" aria-hidden="true"></span> Самые горячие топики.</div>
     <div class="panel-body">
@@ -29,4 +25,5 @@
         {% endfor %}
     </div>
 </div>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
 {% endblock %}
