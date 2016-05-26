@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+import time
 
 app = Flask(__name__)
 app.config.from_object('config')
@@ -11,8 +12,12 @@ def page_not_found(e):
 def internal_server_error(e):
         return render_template('500.html'), 500
 
+@app.template_filter('ctime')
+def timectime(s):
+    return time.ctime(s)
+
 from lolbox.views import home
-from lolbox.views import posts
+#from lolbox.views import posts
 
 app.register_blueprint(home.home)
-app.register_blueprint(posts.posts)
+#app.register_blueprint(posts.posts)

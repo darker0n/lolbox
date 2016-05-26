@@ -1,20 +1,18 @@
-from flask import Blueprint, render_template
-from lolbox.db import get_coll
-import os
+from flask import Blueprint, render_template, request, redirect
+from lolbox.models import *
 
 home = Blueprint('home', __name__)
 
 @home.route('/', methods=['GET'])
 def homepage():
-        return render_template('index.html', topics=[x for x in get_coll("topics").find()])
+        posts = Post.objects.all()
+        return render_template('index.html', posts=posts)
 
 @home.route('/', methods=['POST'])
-def new_topic():
-        coll = get_coll("topics")
-        name = request.form["text"]
-        coll.insert({"number": coll.count() + 1,
-                     "name": name,
-                     "posts": []})
+def new_post():
+        text = request.form["text"]
+        post = Post(text=text)
+        post.save()
         return redirect(request.path)
 
 @home.route('/rules')

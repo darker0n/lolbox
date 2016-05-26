@@ -1,6 +1,6 @@
 # coding: utf-8
 from flask import Blueprint, render_template, current_app, request, flash, redirect
-from lolbox.db import get_coll
+from lolbox.models import *
 from wtforms.validators import *
 import datetime
 from lolbox.tools import s3_upload
@@ -16,7 +16,7 @@ class UploadForm(Form):
 def ticket(number):
         coll = get_coll("topics")
         topic = coll.find_one({"number": number})
-	form = UploadForm()
+        form = UploadForm()
 
     	if form.validate_on_submit():
         	output = s3_upload(form.file, current_app.config)
