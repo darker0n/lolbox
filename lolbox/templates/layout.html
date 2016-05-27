@@ -26,6 +26,21 @@
 						    <li><a href="/">Главная</a></li>
                 <li><a href="/rules">Правила</a></li>
 				    </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if current_user.is_authenticated %}
+                <li>
+                    <p class="navbar-btn">
+                        <a href="{{ url_for('auth.logout') }}" class="btn btn-default">Выйти</a>
+                    </p>
+                </li>
+                {% else %}
+                <li>
+                    <p class="navbar-btn">
+                        <a href="{{ url_for('auth.signin') }}" class="btn btn-primary">Войти</a>
+                    </p>
+                </li>
+                {% endif %}
+            </ul>
 		    </div>
 	  </div>
 </div>

@@ -11,3 +11,4 @@ WTForms==2.1
 Flask-WTF==0.12
 boto==2.40.0
 mongoengine==0.10.6
+Flask-Login==0.3.2
