@@ -4,3 +4,4 @@ venv
 node_modules/
 lolbox/static/bower_components/
 .env
+lolbox/static/js/

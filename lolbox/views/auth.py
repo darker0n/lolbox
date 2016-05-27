@@ -15,9 +15,11 @@ def login():
     password = request.form["password"]
     email = request.form["email"]
     user = User.objects.get(email=email)
-
+    remember_me = False
+    if 'remember' in request.form:
+        remember_me = True
     if user is not None and user.verify_password(password, user.password):
-        login_user(user)
+        login_user(user, remember_me)
         return redirect(url_for('home.index'))
 
     flash(u"Неверный Email или пароль.")
