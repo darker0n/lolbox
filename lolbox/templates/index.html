@@ -12,10 +12,34 @@
     <div class="panel-body">
         <form method="post" role="form">
             <div class="form-group">
-                <textarea required class="form-control" name="text" placeholder="что нового?" maxlength="100"></textarea>
-                <small class="text-muted">Максимум 100 символов</small>
+                <textarea required id="text" class="form-control" name="text" placeholder="что нового?" maxlength="100"></textarea>
+                <small><span id="chars">100</span> символов осталось</small>
+                <p></p>
             </div>
-            <button type="submit" class="btn btn-primary">запостить</button>
+            <button type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+                Опубликовать</button>
+            <script>
+             $(document).ready(function() {
+                 $('button').attr('disabled', true);
+                 $('textarea').keypress(function(e){
+                     if (e.keyCode == 13) return false
+                 })
+                 $('textarea').on('keyup',function() {
+                     var textarea_value = $("#text").val();
+                     if(textarea_value != '') {
+                         $('button').attr('disabled' , false);
+                     }else{
+                         $('button').attr('disabled' , true);
+                     }});
+                 var maxLength = 100;
+                 $('textarea').keyup(function() {
+                     var length = $(this).val().length;
+                     var length = maxLength-length;
+                     $('#chars').text(length);
+                 });
+             });
+            </script>
         </form>
     </div>
 </div>
