@@ -27,9 +27,10 @@ def check_login():
                                 return
                 abort(404)
 
-@app.template_filter('ctime')
-def timectime(s):
-    return time.ctime(s)
+from lolbox.models import *
+@app.template_filter('id_to_username')
+def id_to_username(id):
+        return User.objects.get(id=str(id))['username']
 
 from lolbox.views import home
 from lolbox.views import auth

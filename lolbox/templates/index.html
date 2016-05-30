@@ -44,6 +44,13 @@
     </div>
 </div>
 
+<script>
+    function tm(unix_tm) {
+        var dt = new Date(unix_tm*1000);
+        document.writeln(dt.toLocaleString("ru"));
+    }
+</script>
+
 <div class="panel panel-default">
     <div class="panel-heading">
         <span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Свежие посты</div>
@@ -51,7 +58,8 @@
         {% for post in posts%}
         <div class="panel panel-default">
             <div class="panel-body">
-                {{post.text}} <span class="label label-default">{{ post.time|ctime }}</span>
+                <h5><strong>{{post.author|id_to_username}}</strong> <span class="label label-default"><script>tm({{post.time}})</script></span></h5>
+                {{post.text}}
             </div>
         </div>
         {% endfor %}

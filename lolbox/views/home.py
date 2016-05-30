@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect
 from lolbox.models import *
-from flask.ext.login import login_required
+from flask.ext.login import login_required, current_user
 
 home = Blueprint('home', __name__)
 
@@ -14,7 +14,7 @@ def index():
 @login_required
 def new_post():
         text = request.form["text"]
-        post = Post(text=text)
+        post = Post(text=text, author=str(current_user.id))
         post.save()
         return redirect(request.path)
 

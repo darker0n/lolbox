@@ -17,10 +17,10 @@ class AuthMixin(object):
             abort(404)
 
 class UserModel(AuthMixin, model.ModelAdmin):
-    list_display = ('username','email')
+    list_display = ('username','email', 'id')
 
 class PostModel(AuthMixin, model.ModelAdmin):
-    list_display = ('text',)
+    list_display = ('text', 'author')
 
 admin = Admin(app, 'lolbox')
 
