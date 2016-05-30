@@ -58,7 +58,7 @@
         {% for post in posts%}
         <div class="panel panel-default">
             <div class="panel-body">
-                <h5><strong>{{post.author|id_to_username}}</strong> <span class="label label-default"><script>tm({{post.time}})</script></span></h5>
+                <h5><strong>{{ post.author|id_to_username }}</strong> <span class="label label-default"><script>tm({{post.time}})</script></span></h5>
                 {{post.text}}
             </div>
         </div>

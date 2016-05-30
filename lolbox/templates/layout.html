@@ -23,8 +23,8 @@
     <div class="container">
 		    <div class="navbar-collapse collapse">
 				    <ul class="nav navbar-nav">
-						    <li><a href="/">Главная</a></li>
-                <li><a href="/rules">Правила</a></li>
+						    <li><a href="{{ url_for('home.index') }}">Главная</a></li>
+                <li><a href="{{ url_for('home.rules') }}">Правила</a></li>
 				    </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if current_user.is_authenticated %}
@@ -34,7 +34,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         {% if current_user.is_admin %}
-                        <li><a href="/admin">
+                        <li><a href="{{ url_for('admin.index') }}">
                             <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
                             Панель администрирования</a></li>
                         {% endif %}

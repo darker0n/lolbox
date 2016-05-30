@@ -8,7 +8,7 @@ home = Blueprint('home', __name__)
 @login_required
 def index():
         posts = Post.objects.all()
-        return render_template('index.html', posts=posts)
+        return render_template('home/index.html', posts=posts)
 
 @home.route('/', methods=['POST'])
 @login_required
@@ -20,4 +20,4 @@ def new_post():
 
 @home.route('/rules')
 def rules():
-        return render_template('rules.html')
+        return render_template('home/rules.html')
